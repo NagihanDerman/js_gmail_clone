@@ -17,4 +17,4 @@ This project is a Gmail clone built using HTML, SASS, and JavaScript. The applic
 
 ### GIF
 
-<img src="gmail.gif"/>
+<img src="./images/gmail.gif"/>
