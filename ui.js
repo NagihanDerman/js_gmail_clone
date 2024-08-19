@@ -1,4 +1,4 @@
-// ekranda mail oluşturma penceresini oluşturmak için kullanılacak fonksiyon
+// ekranda mail oluşturma penceresini için kullanılan fonk.
 export function showModal(modal, willOpen) {
   modal.style.display = willOpen ? "grid" : "none";
 }
@@ -6,16 +6,13 @@ export function showModal(modal, willOpen) {
 function trimString(str, max) {
   // metin maxdan kısaysa olduğu gibi gönderir
   if (str.length < max) return str;
-  // metnin harf uzunluğu max dan uzunsa
-  // maxa kadar olan kısmı kes ve sonrasında ... koy
-  // yeni metni return ile fonksiyonun çalıştığı yere gönder
+
   return str.slice(0, max) + "...";
 }
 
 export function renderMails(outlet, data) {
   if (!data) return;
-  // her bir mail objesi için bir maili temsil eden html oluştur
-  // olusan mail htmlini mailler alanına gönderme(ekrana yazdırma)
+
   outlet.innerHTML = data
     .map(
       (mail) => `   

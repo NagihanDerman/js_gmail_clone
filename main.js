@@ -21,10 +21,7 @@ const categoryArea = document.querySelector(".nav-middle");
 
 //! Olay İzleyicileri
 hamburgerMenu.addEventListener("click", hideMenu);
-/*
-    ekranın yüklenme anında çalışır ve renderMails fonksiyonu ile 
-    ekranı günceller
-*/
+
 document.addEventListener("DOMContentLoaded", () => {
   renderMails(mailsArea, mailData);
 });
@@ -72,11 +69,6 @@ function getDate() {
 }
 
 function hideMenu() {
-  /*
-        classList.toggle();
-        * Ona parametre olarak verdiğimiz class'ı yoksa ekler varsa çıkarır.
-    
-    */
   navigation.classList.toggle("hide");
 }
 // maili gönderme
@@ -101,22 +93,22 @@ function sendMail(e) {
         color: "white",
       },
     }).showToast();
-    // bunlardan herhangi birinin içi boşsa alttaki kodların çalışmasını engellemeli
+    // bunlardan herhangi birinin içi boşsa alttaki kodların çalışmasını engeller
     return;
   }
   // yeni mail objesi oluşturma
   const newMail = {
     id: new Date().getTime(), // data objesi ile benzersiz id olusturma
     sender: "Nour",
-    receiver, // receiver:recevier yapabilirdik ama js kendisi tanıyor receiver yazarsak
+    receiver,
     title,
     message,
     stared: false,
     date: getDate(),
   };
-  // oluşturduğumuz objeyi dizinin en başına ekleme
+  // oluşan objeyi dizinin en başına ekleme
   mailData.unshift(newMail);
-  // localstorage verileri string veri türünde tuttugu icin JSON yapısını stringe çevirmeliyiz
+  // localstorage verileri string veri türünde tuttugu icin JSON yapısını stringe çevirme
   const strData = JSON.stringify(mailData);
   // stroge'a gönderdik
   localStorage.setItem("data", strData); //! key value data:anahtar strData:değerdir
@@ -169,7 +161,7 @@ function updateMail(e) {
     const mailId = mail.dataset.id;
     // id'sinden yola çıkarak mail objesini bulma
     const foundItem = mailData.find((i) => i.id == mailId);
-    // bulduğumuz elemanın stared değerini tersine çevirmek için spread(...) operatörü yardımı ile tersine çevirdik
+    // bulduğumuz elemanın stared değerini  spread(...) operatörü ile tersine çevirdik
     const updatedItem = { ...foundItem, stared: !foundItem.stared };
     // güncellenecek elemanın sırasını bulma
     const index = mailData.findIndex((i) => i.id == mailId);
